@@ -21,4 +21,8 @@ public class BCommentService {
 	public int insertComment(BCommentDTO dto) throws Exception {
 		return cdao.insertComment(dto);
 	}
+	
+	public int deleteBComment(int seq) throws Exception {
+		return cdao.deleteBComment(seq);
+	} 
 }

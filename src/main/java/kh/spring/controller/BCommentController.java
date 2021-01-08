@@ -34,8 +34,13 @@ public class BCommentController {
 	}
 	
 	@RequestMapping("deleteBComment.bcomment")
-	public String deleteBComment() throws Exception{
-		return "";
+	public String deleteBComment(HttpServletRequest request, BCommentDTO dto) throws Exception{
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		int result = cservice.deleteBComment(seq);
+		request.setAttribute("result", result);
+		request.setAttribute("board_seq", board_seq);
+		return "bcomment/deleteBCommentResultView";
 	}
 	
 }
