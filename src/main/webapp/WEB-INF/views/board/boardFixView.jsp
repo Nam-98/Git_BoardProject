@@ -33,12 +33,12 @@ $(document).ready(function() {
 <h2 style="text-align: center;">게시글 수정</h2><br><br><br>
 
 <div style="width: 60%; margin: auto;">
-	<form method="post" action="/write">
-		<input type="text" name="writer" style="width: 20%;" value="#{bdto.writer }"/><br>
-		<input type="text" name="title" style="width: 40%;" value="#{bdto.title }"/>
+	<form method="post" action="/board/fixAfterBoard.board">
+		<input type="text" name="writer" style="width: 20%;" value="${bdto.writer }"/><br>
+		<input type="text" name="title" style="width: 40%;" value="${bdto.title }"/>
 		<br><br> 
-		<textarea id="summernote" name="content"></textarea>
-		<input id="subBtn" type="button" value="#{bdto.content }" style="float: right;" onclick="goWrite(this.form)"/>
+		<textarea id="summernote" name="content">${bdto.content }</textarea>
+		<input id="subBtn" type="button" value="수정하기" style="float: right;" onclick="goWrite(this.form)"/>
 	</form>
 </div>
 

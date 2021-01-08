@@ -38,7 +38,7 @@ public class BoardDAO {
 		return db.insert("Board.insertBoard",bdto);
 	}
 	
-	public BoardDTO fixBeforeBoard(String seq) throws Exception{
+	public BoardDTO fixBeforeBoard(int seq) throws Exception{
 		return db.selectOne("Board.fixBeforeBoard", seq);
 	}
 	
