@@ -116,4 +116,9 @@ public class BoardService {
 		return bdao.addViewCountBoard(seq);
 	}
 	
+	//글삭제
+	public int deleteBoard(int seq) throws Exception{
+		return bdao.deleteBoard(seq);
+	}
+	
 }

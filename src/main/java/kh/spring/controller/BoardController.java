@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kh.spring.dto.BCommentDTO;
@@ -81,14 +82,9 @@ public class BoardController {
 		return "redirect:/board/mainBoardView";//게시글 리스트 jsp로
 	}
 	
+	//글제목 클릭 시, 글 세부 사항
 	@RequestMapping("contentsBoard.board")
 	public String contentsBoard(HttpServletRequest request, BoardDTO dto) throws Exception {
-		//----------합칠때 지울거(가짜 로그인, 가짜 글번호)---------
-		System.out.println("들어오나요");
-		session.setAttribute("id", "test");
-		request.setAttribute("seq","1");
-		//---------------------------------------------------------
-		
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		BoardDTO dtos = bservice.searchBoard(dto.getSeq());
 		 List<BCommentDTO> list = cservice.searchComment(dto.getSeq());
@@ -98,11 +94,20 @@ public class BoardController {
 		return "/board/clickBoardView";
 	}
 	
+	//글삭제
 	@RequestMapping("deleteBoard.board")
 	public String deleteBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
-		System.out.println("글삭제하러 들어왔습니다.");
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
-		//int result = bservice.deleteBoard(dto.getSeq());
-		return "";
+		int result = bservice.deleteBoard(dto.getSeq());
+		return "/board/deleteBoardView";
 	}
+<<<<<<< HEAD
+=======
+	
+	@ExceptionHandler
+	public String exceptionalHandler(Throwable e) {
+		e.printStackTrace();
+		return "error";
+	}
+>>>>>>> c742730aa527e0d7cece3c7779f3a52a5b9757ed
 }

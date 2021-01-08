@@ -30,22 +30,22 @@
 <body>
 	<div class="container">
 		<div class="loginContainer">
-			<form action="/member/loginProc.mem" method="post">
+			<form action="/bmember/loginMember.member" method="post">
 			<h1 class="display-6">Login</h1>
 				<div class="input-group input-group-lg py-1">
 					<span class="input-group-text" id="inputGroup-sizing-lg">ID</span>
 					<input type="text" class="form-control"
 						aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-lg">
+						aria-describedby="inputGroup-sizing-lg" name=id>
 				</div>
 				<div class="input-group input-group-lg py-1">
 					<span class="input-group-text" id="inputGroup-sizing-lg">PW</span>
 					<input type="password" class="form-control"
 						aria-label="Sizing example input"
-						aria-describedby="inputGroup-sizing-lg">
+						aria-describedby="inputGroup-sizing-lg" name=pw>
 				</div>
 				<div class="buttons">
-					<button id="login" class="btn btn-secondary">로그인</button>
+					<input type=submit id="login" class="btn btn-secondary" value="로그인">
 					<button type=button id="signUp" class="btn btn-secondary">회원가입</button>
 				</div>
 			</form>
@@ -54,19 +54,20 @@
 	</div>
 	<script>
 		$("#signUp").click(function() {
-			location.href = "/bmember/toSignUpView.member";
+			location.href = "/bmember/toSignUpViewMember.member";
 		})
 	</script>
-	<c:if test='${login==true}'>
-		<script>
+	
+	<script>
+		let signResult = ${loginResult};
+		console.log(signResult);
+		if(signResult==1){
 			alert("환영합니다.");
 			location.href = "/";
-		</script>
-	</c:if>
-	<c:if test='${login==false}'>
-		<script>
+		}else if(signResult==0){
 			alert("로그인에 실패하였습니다.");
-		</script>
-	</c:if>
+		}
+	</script>
+
 </body>
 </html>
