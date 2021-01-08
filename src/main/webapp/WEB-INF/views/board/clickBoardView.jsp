@@ -90,7 +90,7 @@
 						<c:when test="${i.writer==sessionScope.id}">
 							<%-- <button id="fixComment" onclick="location.href='${pageContext.request.contextPath}/fix.comment?seq=${vo.seq}' ">Fix</button> --%>
 							<button type="button" id="deleteComment"
-								onclick="location.href='/bcomment/deleteBComment.bcomment?seq=${i.seq}' ">X</button>
+								onclick="location.href='/bcomment/deleteBComment.bcomment?seq=${i.seq}&board_seq=${dtos.seq}' ">X</button>
 						</c:when>
 					</c:choose>
 			</tr>
