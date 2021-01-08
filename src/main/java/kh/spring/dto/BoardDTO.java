@@ -2,15 +2,16 @@ package kh.spring.dto;
 
 import java.util.Date;
 
-
 public class BoardDTO {
 
-	private int seq;
+	private int seq; // pk
 	private String writer;
 	private String title;
 	private String content;
 	private int view_count;
 	private Date write_date;
+	private int commentCount;
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -41,15 +42,20 @@ public class BoardDTO {
 	public void setView_count(int view_count) {
 		this.view_count = view_count;
 	}
-
 	public Date getWrite_date() {
 		return write_date;
 	}
 	public void setWrite_date(Date write_date) {
 		this.write_date = write_date;
 	}
-	
-	public BoardDTO(int seq, String writer, String title, String content, int view_count, Date write_date) {
+	public int getCommentCount() {
+		return commentCount;
+	}
+	public void setCommentCount(int commentCount) {
+		this.commentCount = commentCount;
+	}
+	public BoardDTO(int seq, String writer, String title, String content, int view_count, Date write_date,
+			int commentCount) {
 		super();
 		this.seq = seq;
 		this.writer = writer;
@@ -57,9 +63,11 @@ public class BoardDTO {
 		this.content = content;
 		this.view_count = view_count;
 		this.write_date = write_date;
+		this.commentCount = commentCount;
 	}
 	public BoardDTO() {
+		super();
 	}
-	
+
 	
 }

@@ -9,6 +9,6 @@ import kh.spring.dao.MemberDAO;
 public class MemberService {
 	
 	@Autowired
-	private MemberDAO dao;
+	private MemberDAO mdao;
 
 }

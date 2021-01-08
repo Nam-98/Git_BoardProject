@@ -8,6 +8,6 @@ import kh.spring.dao.BoardDAO;
 public class BoardService {
 	
 	@Autowired
-	private BoardDAO dao;
+	private BoardDAO bdao;
 
 }
