@@ -66,7 +66,7 @@ public class BMemberContoller {
 	public String quitProcessMember(HttpServletRequest request, Model model) {
 		String sessionId = (String)request.getSession().getAttribute("id");
 		int result = mservice.quitProcessMember(sessionId);
-		return "로그아웃 프로세스로 이동";
+		return "redirect:/bmenber/logoutMember.member";
 	}
 	
 	@RequestMapping("getMyInfo.member")
