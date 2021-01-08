@@ -4,7 +4,7 @@ import java.util.Date;
 
 import kh.spring.encryptUtils.EncryptUtils;
 
-public class MemberDTO {
+public class BMemberDTO {
 	private String id; // pk
 	private String pw;
 	private String name;
@@ -47,7 +47,7 @@ public class MemberDTO {
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	public MemberDTO(String id, String pw, String name, String email, String contact, Date reg_date) {
+	public BMemberDTO(String id, String pw, String name, String email, String contact, Date reg_date) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -56,7 +56,7 @@ public class MemberDTO {
 		this.contact = contact;
 		this.reg_date = reg_date;
 	}
-	public MemberDTO() {
+	public BMemberDTO() {
 		super();
 	}	
 	

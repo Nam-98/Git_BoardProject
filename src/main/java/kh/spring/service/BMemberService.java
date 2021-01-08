@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import kh.spring.dao.MemberDAO;
 
 @Service
-public class MemberService {
+public class BMemberService {
 	
 	@Autowired
 	private MemberDAO mdao;
