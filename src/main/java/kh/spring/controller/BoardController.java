@@ -1,6 +1,7 @@
 package kh.spring.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,26 +13,38 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+import kh.spring.dto.BCommentDTO;
 import kh.spring.dto.BoardDTO;
 
-import kh.spring.dto.BCommentDTO;
 import kh.spring.service.BCommentService;
-
 import kh.spring.service.BoardService;
 
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-
 	@Autowired
 	private BoardService bservice;
-
-	@Autowired
-	private BCommentService cservice;
 	
 	@Autowired
+	private BCommentService cservice;
+
+	@Autowired
 	private HttpSession session;
+	
+	@RequestMapping("mainBoard.board")
+	public String mainBoard(HttpServletRequest request) throws Exception {
+		String cpage = request.getParameter("cpage");
+		List<BoardDTO> list = new ArrayList<>();
+		list = bservice.listByCpage(Integer.parseInt(cpage));
+		String navi = bservice.getNavi(Integer.parseInt(cpage));
+
+		session.setAttribute("list", list);
+		session.setAttribute("navi", navi);
+		session.setAttribute("cpage", cpage);
+
+
+		return "board/mainBoardView";
+	}
 	
 
 	//게시판 목록에서 글작성 버튼 클릭시
@@ -92,5 +105,4 @@ public class BoardController {
 		int result = bservice.deleteBoard(dto.getSeq());
 		return "/board/deleteBoardView";
 	}
-	
 }
