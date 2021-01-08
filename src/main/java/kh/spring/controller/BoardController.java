@@ -63,7 +63,7 @@ public class BoardController {
 	public String insertBoard(BoardDTO bdto) throws Exception{
 		int result = bservice.insertBoard(bdto);
 		System.out.println("글작성 성공유무 ::"+result);
-		return "redirect:/board/mainBoard.board?cpage=1";//게시글 리스트 jsp로
+		return "redirect:/board/mainBoard.board?cpage="+session.getAttribute("cpage");//게시글 리스트 jsp로
 	}
 	
 	//수정 전 글내용 불러오기
@@ -100,7 +100,7 @@ public class BoardController {
 	public String deleteBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		int result = bservice.deleteBoard(dto.getSeq());
-		return "/board/deleteBoardView";
+		return "redirect:/board/mainBoard.board?cpage="+session.getAttribute("cpage");
 	}
 
 	@ExceptionHandler
