@@ -11,4 +11,8 @@
   <insert id="insertComment">
   		insert into kh.bcomment values(kh.bcomment_seq.nextval,#{writer},#{contents},sysdate,#{board_seq})
   </insert>
+  
+  <delete id ="deleteBComment">
+  		delete from kh.bcomment where seq = #{value}
+  </delete>
 </mapper>

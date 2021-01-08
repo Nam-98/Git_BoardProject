@@ -100,7 +100,6 @@ public class BoardController {
 	//글삭제
 	@RequestMapping("deleteBoard.board")
 	public String deleteBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
-		System.out.println("글삭제하러 들어왔습니다.");
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		int result = bservice.deleteBoard(dto.getSeq());
 		return "/board/deleteBoardView";
