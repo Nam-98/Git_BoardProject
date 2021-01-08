@@ -34,7 +34,7 @@
 
 <body>
 <div class="container">
-	<form action="/board/mainBoard.board" method="post">
+<!-- 	<form action="/board/mainBoard.board" method="post"> -->
 		<table class="table table-striped" border="1" align="center">
 			<tr>
 				<td colspan="5" align="center">자유게시판</td>
@@ -73,7 +73,7 @@
 					class="btn btn-primary" value="글쓰기" id=write></td>
 			</tr>
 		</table>
-	</form>
+<!-- 	</form> -->
 	</div>
 </body>
 <script>
