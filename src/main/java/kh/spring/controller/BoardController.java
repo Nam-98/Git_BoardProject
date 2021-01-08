@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kh.spring.dto.BCommentDTO;
@@ -83,10 +84,10 @@ public class BoardController {
 	//글제목 클릭 시, 글 세부 사항
 	@RequestMapping("contentsBoard.board")
 	public String contentsBoard(HttpServletRequest request, BoardDTO dto) throws Exception {
-		//----------합칠때 지울거(가짜 로그인, 가짜 글번호)---------
+		//----------합칠때 지울거(가짜 로그인)---------
 		System.out.println("들어오나요");
 		session.setAttribute("id", "test");
-		request.setAttribute("seq","1");
+		//가짜 글번호 지움
 		//---------------------------------------------------------	
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		BoardDTO dtos = bservice.searchBoard(dto.getSeq());
@@ -103,5 +104,11 @@ public class BoardController {
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		int result = bservice.deleteBoard(dto.getSeq());
 		return "/board/deleteBoardView";
+	}
+	
+	@ExceptionHandler
+	public String exceptionalHandler(Throwable e) {
+		e.printStackTrace();
+		return "error";
 	}
 }

@@ -6,17 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- include summernote css/js-->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css"
-	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
-<!-- include summernote-ko-KR -->
-<script src="/resources/js/summernote-ko-KR.js"></script>
 <title>${dtos.title}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
 </head>
 <style>
+.container{
+width : 1000px;
+}
+
 * {
 	border-right: none;
 	border-left: none;
@@ -42,8 +42,8 @@
 }
 </style>
 <body>
-
-	<table border="1" align="center" width=760>
+	<div class="container">
+	<table border="1" align="center" width="760" class="table table-hover">
 		<tr>
 			<td colspan="5" align="center" id="mainTitle"><a
 				href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></a></td>
@@ -51,7 +51,7 @@
 		<tr id="subTitle">
 			<td width=20>Seq</td>
 			<th align="center" width=500>Title</th>
-			<th align="center" width=100>Writer</th>
+			<th align="center" width=100>Writer</th> 
 			<th align="center" width=100>Date</th>
 			<th align="center">View</th>
 		</tr>
@@ -88,7 +88,6 @@
 				<td width=50>${i.write_date}
 				<td><c:choose>
 						<c:when test="${i.writer==sessionScope.id}">
-							<%-- <button id="fixComment" onclick="location.href='${pageContext.request.contextPath}/fix.comment?seq=${vo.seq}' ">Fix</button> --%>
 							<button type="button" id="deleteComment"
 								onclick="location.href='/bcomment/deleteBComment.bcomment?seq=${i.seq}&board_seq=${dtos.seq}' ">X</button>
 						</c:when>
@@ -104,6 +103,33 @@
 			</tr>
 		</form>
 	</table>
+	
+	<a href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Seq</th>
+      <th scope="col">Title</th>
+      <th scope="col">Writer</th>
+      <th scope="col">Date</th>
+      <th scope="col">View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">${dtos.seq}</th>
+      <td id="seq">${dtos.title}</td>
+      <td id="title">${dtos.writer}</td>
+      <td>${dtos.write_date}</td>
+      <td>${dtps.view_count}</td>
+    </tr>
+    <tr>
+	  <td colspan="5" align=center id="contents">${dtos.content}</td>
+	</tr>
+  </tbody>
+</table>
+	
+	</div>
 </body>
 
 <script>
