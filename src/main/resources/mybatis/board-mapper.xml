@@ -25,4 +25,8 @@
   		Update kh.board set view_count=view_count+1 where seq =#{value}
   </update>
 
+  <delete id ="deleteBoard">
+  		delete from kh.board where seq = #{value}
+  </delete>
+
 </mapper>

@@ -34,5 +34,9 @@ public class BoardDAO {
 		return db.update("Board.addViewCountBoard",seq);
 	}
 	
+	public int deleteBoard(int seq) {
+		return db.delete("Board.deleteBoard",seq);
+	}
+	
 }
 
