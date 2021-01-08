@@ -50,6 +50,7 @@ public class BMemberService {
 	public int loginMember(BMemberDTO dto) {
 		int result = mdao.loginMember(dto);
 		if(result==1) {
+			System.out.println("id : "+dto.getId());
 			session.setAttribute("id", dto.getId());
 		}
 		return result;
