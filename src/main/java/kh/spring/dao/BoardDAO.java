@@ -5,11 +5,21 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kh.spring.dto.BoardDTO;
+
 @Repository
 public class BoardDAO {
 	
 	@Autowired
 	private SqlSession db;
 
+	public BoardDTO searchBoard(int seq)  {
+		return db.selectOne("Board.searchBoard",seq);
+	}	
+
+	public int addViewCountBoard(int seq)  {
+		return db.update("Board.addViewCountBoard",seq);
 	}
+	
+}
 
