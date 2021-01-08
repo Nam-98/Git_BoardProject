@@ -14,7 +14,11 @@ public class BCommentService {
 	@Autowired
 	private BCommentDAO cdao;
 
-	public List<BCommentDTO> searchComment(int board_num) throws Exception{
-		return cdao.searchComment(board_num);
+	public List<BCommentDTO> searchComment(int board_seq) throws Exception{
+		return cdao.searchComment(board_seq);
+	}
+	
+	public int insertComment(BCommentDTO dto) throws Exception {
+		return cdao.insertComment(dto);
 	}
 }

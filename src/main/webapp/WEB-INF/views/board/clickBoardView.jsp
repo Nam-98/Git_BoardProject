@@ -6,9 +6,114 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>세부 내용 보기</title>
+<title>${dtos.title}</title>
 </head>
-<body>
+<style>
+* {
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	font-family: "고딕";
+}
 
+.component>* {
+	text-align: center;
+	background-color: beige
+}
+
+#subTitle>* {
+	background-color: darksalmon;
+}
+
+#contents {
+	background-color: antiquewhite;
+}
+
+#commentsubTitle {
+	background-color: darksalmon;
+}
+</style>
+<body>
+	
+	<table border="1" align="center" width=760>
+		<tr>
+			<td colspan="5" align="center" id="mainTitle"><a href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></td>
+		</tr>
+		<tr id="subTitle">
+			<td width=20>Seq</td>
+			<th align="center" width=500>Title</th>
+			<th align="center" width=100>Writer</th>
+			<th align="center" width=100>Date</th>
+			<th align="center">View</th>
+		</tr>
+		<tr class="component">
+			<td width=20 id="seq">${dtos.seq}
+			<td width=500 id="title">${dtos.title}
+			<td width=100>${dtos.writer}
+			<td width=100>${dtos.write_date}
+			<td>${dtos.view_count}
+		</tr>
+
+		<tr>
+			<td colspan="5" height=500 align=center valign=center id="contents">${dtos.content}</td>
+		</tr>
+		<tr>
+			<td align=right colspan="5">
+				<button id= "fix">수정하기</button>
+				<button id="delete">삭제하기</button> 
+				<input type="button" id="return" value="목록으로">
+			</td>
+		</tr>
+ 		<tr id="commentsubTitle">
+			<th width=20>Seq</th>
+			<th align="center" width=500>댓글 내용</th>
+			<th align="center" width=100>댓글 작성자</th>
+			<th align="center" width=50>작성날짜</th>
+			<th align="center" width=50>삭제</th>
+		</tr>
+ 		<c:forEach var="i" items="${sessionScope.list}">
+			<tr class="component">
+				<td width=20 id="seq">${i.seq}
+				<td width=500>${i.contents}
+				<td width=100>${i.writer}
+				<td width=50>${i.write_date}
+				<td>				
+				<c:choose>
+				<c:when test = "${i.id==sessionScope.login}">
+					<%-- <button id="fixComment" onclick="location.href='${pageContext.request.contextPath}/fix.comment?seq=${vo.seq}' ">Fix</button> --%>
+					<button type="button" id="deleteComment" onclick="location.href='${pageContext.request.contextPath}/delete.comment?seq=${i.seq}' ">X</button>
+				</c:when>
+				</c:choose>
+			</tr>
+			
+		</c:forEach>
+		
+		<form action="/bcomment/commentWrite.comment?seq=${dtos.seq}" method="post">
+			<tr>
+				<th colspan="3" height=100 width=500 align=center><textarea
+						style="width: 100%" name="content" id="content" required></textarea></th>
+				<th colspan="3"><button id="add_co" >댓글 등록</button></th>
+			</tr>
+		</form> 
+	</table>
 </body>
+<script>
+	document.getElementById("return").onclick =function(){
+ 		location.href="/board/board.brd?cpage=${sessionScope.cpage}";
+ 	}
+
+	if("${dtos.writer}"=="${sessionScope.login}"){
+		document.getElementById("delete").onclick = function(){
+			location.href = "/board/delete.brd?seq=${dtos.seq}";
+		}
+	
+		document.getElementById("fix").onclick = function(){
+			location.href = "/board/fix.brd?seq=${dtos.seq}";
+		}
+	}else{
+		document.getElementById("delete").style.visibility="hidden";
+		document.getElementById("fix").style.visibility="hidden";
+	}
+
+</script>
 </html>
