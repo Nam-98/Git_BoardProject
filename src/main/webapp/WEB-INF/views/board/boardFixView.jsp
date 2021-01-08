@@ -30,7 +30,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<h2 style="text-align: center;">글 작성</h2><br><br><br>
+<h2 style="text-align: center;">게시글 수정</h2><br><br><br>
 
 <div style="width: 60%; margin: auto;">
 	<form method="post" action="/write">
