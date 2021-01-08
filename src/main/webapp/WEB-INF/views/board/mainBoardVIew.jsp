@@ -38,7 +38,7 @@
 </head>
 <body>
 <form action="/board/mainBoard.board" method="post">
-	<table border="1" align="center">
+	<table border="1">
         <tr>
             <td colspan="5" align="center">자유게시판</td>  
         </tr>
