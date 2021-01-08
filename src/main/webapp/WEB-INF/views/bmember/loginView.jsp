@@ -72,14 +72,14 @@
 	
 	
 	<!-- 테스트영역 시작 -->
-	
+<!--  
 	<input type="button" value="세션값 'ttt' 더미데이터 넣기" id="dummy">
 	<script>
 		$("#dummy").click(function() {
 			location.href = "/bmember/dummyInput.mem";
 		})
 	</script>
-
+-->
 	<!-- 테스트영역 종료 -->
 	
 </body>
