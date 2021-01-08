@@ -43,7 +43,7 @@ public class BoardController {
 		session.setAttribute("cpage", cpage);
 
 
-		return "board/mainBoardView";
+		return "/board/mainBoardView";
 	}
 	
 
