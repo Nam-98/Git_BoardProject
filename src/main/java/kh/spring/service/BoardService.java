@@ -16,13 +16,10 @@ public class BoardService {
 	@Autowired
 	private BoardDAO bdao;
 	
-<<<<<<< HEAD
 	public List<BoardDTO> listByCpage(int cpage) throws Exception {		
 		return bdao.listByCpage(cpage);
 	}
-//	public List<BoardDTO> listByCpage(int cpage, int seq) throws Exception {		
-//		return bdao.listByCpage(cpage, seq);
-//	}
+
 	public String getNavi(int currentPage) throws Exception {
 		// 설정값 정하기 :
 		// 총 데이터가 몇개 있는지
@@ -96,7 +93,7 @@ public class BoardService {
 		}
 
 		return sb.toString();
-=======
+	}
 	public int insertBoard(BoardDTO bdto) throws Exception{
 		System.out.println("서비스 :: "+bdto.getWriter() +":::" + bdto.getContent());
 		return bdao.insertBoard(bdto);
@@ -108,7 +105,6 @@ public class BoardService {
 	
 	public int fixAfterBoard(BoardDTO bdto) throws Exception{
 		return bdao.fixAfterBoard(bdto);
->>>>>>> e12cd65c760984fb4821a7133829871b595d9eb9
 	}
 
 	//seq로 글 정보 불러오기

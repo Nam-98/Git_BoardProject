@@ -1,10 +1,7 @@
 package kh.spring.controller;
 
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> e12cd65c760984fb4821a7133829871b595d9eb9
 import java.util.List;
 
 
@@ -16,16 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-<<<<<<< HEAD
 import kh.spring.dto.BCommentDTO;
-=======
->>>>>>> e12cd65c760984fb4821a7133829871b595d9eb9
 import kh.spring.dto.BoardDTO;
 
-import kh.spring.dto.BCommentDTO;
 import kh.spring.service.BCommentService;
-
 import kh.spring.service.BoardService;
 
 @Controller
@@ -40,7 +31,6 @@ public class BoardController {
 	@Autowired
 	private HttpSession session;
 	
-<<<<<<< HEAD
 	@RequestMapping("mainBoard.board")
 	public String mainBoard(HttpServletRequest request) throws Exception {
 		String cpage = request.getParameter("cpage");
@@ -56,7 +46,6 @@ public class BoardController {
 		return "board/mainBoardView";
 	}
 	
-=======
 
 	//게시판 목록에서 글작성 버튼 클릭시
 	@RequestMapping("insertBoardClick.board")
@@ -91,8 +80,6 @@ public class BoardController {
 		return "redirect:/board/mainBoardView";//게시글 리스트 jsp로
 	}
 	
-	
->>>>>>> e12cd65c760984fb4821a7133829871b595d9eb9
 	@RequestMapping("contentsBoard.board")
 	public String contentsBoard(HttpServletRequest request, BoardDTO dto) throws Exception {
 		//----------합칠때 지울거(가짜 로그인, 가짜 글번호)---------
