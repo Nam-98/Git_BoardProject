@@ -5,11 +5,11 @@
 <mapper namespace="Board">
 
   <select id="searchBoard" resultType="kh.spring.dto.BoardDTO">
-  		select * from board where seq =#{value}
+  		select * from kh.board where seq =#{value}
   </select>
   
   <update id ="addViewCountBoard">
-  		Update board set view_count=view_count+1 where seq =#{value}
+  		Update kh.board set view_count=view_count+1 where seq =#{value}
   </update>
 
 </mapper>

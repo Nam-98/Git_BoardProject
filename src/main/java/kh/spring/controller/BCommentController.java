@@ -21,15 +21,21 @@ public class BCommentController {
 	@Autowired
 	private HttpSession session;
 	
-	@RequestMapping("commentWrite.comment")
-	public String commentWrite(HttpServletRequest request, BCommentDTO dto) throws Exception{
+	@RequestMapping("writeBComment.bcomment")
+	public String writeBComment(HttpServletRequest request, BCommentDTO dto) throws Exception{
 		dto.setContents(request.getParameter("content"));
-		dto.setWriter((String) session.getAttribute("login"));
+		dto.setWriter((String) session.getAttribute("id"));
 		dto.setBoard_seq(Integer.parseInt(request.getParameter("seq")));
 
 		int result = cservice.insertComment(dto);
 		request.setAttribute("result", result);
-		request.setAttribute("board_num", dto.getBoard_seq());
-		return "comment/commentWriteResult";
+		request.setAttribute("board_seq", dto.getBoard_seq());
+		return "bcomment/writeBCommentResultView";
 	}
+	
+	@RequestMapping("deleteBComment.bcomment")
+	public String deleteBComment() throws Exception{
+		return "";
+	}
+	
 }

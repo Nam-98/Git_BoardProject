@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BComment">
 
-  <select id ="searchByBoardNum" resultType="kh.spring.dto.CommentDTO">
-  		select * from board_comment where board_seq = #{value}
+  <select id ="searchComment" resultType="kh.spring.dto.BCommentDTO">
+  		select * from kh.bcomment where board_seq = #{value}
   </select>
 
   <insert id="insertComment">
-  		insert into board_comment values(bcomment_seq.nextval,#{board_num},#{id},0,sysdate,#{contents})
+  		insert into kh.bcomment values(kh.bcomment_seq.nextval,#{writer},#{contents},sysdate,#{board_seq})
   </insert>
 </mapper>

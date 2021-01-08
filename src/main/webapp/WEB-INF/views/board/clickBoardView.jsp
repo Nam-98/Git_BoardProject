@@ -37,7 +37,7 @@
 	
 	<table border="1" align="center" width=760>
 		<tr>
-			<td colspan="5" align="center" id="mainTitle"><a href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></td>
+			<td colspan="5" align="center" id="mainTitle"><a href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></a></td>
 		</tr>
 		<tr id="subTitle">
 			<td width=20>Seq</td>
@@ -79,16 +79,16 @@
 				<td width=50>${i.write_date}
 				<td>				
 				<c:choose>
-				<c:when test = "${i.id==sessionScope.login}">
+				<c:when test = "${i.writer==sessionScope.id}">
 					<%-- <button id="fixComment" onclick="location.href='${pageContext.request.contextPath}/fix.comment?seq=${vo.seq}' ">Fix</button> --%>
-					<button type="button" id="deleteComment" onclick="location.href='${pageContext.request.contextPath}/delete.comment?seq=${i.seq}' ">X</button>
+					<button type="button" id="deleteComment" onclick="location.href='${pageContext.request.contextPath}/deleteBComment.bcomment?seq=${i.seq}' ">X</button>
 				</c:when>
 				</c:choose>
 			</tr>
 			
 		</c:forEach>
 		
-		<form action="/bcomment/commentWrite.comment?seq=${dtos.seq}" method="post">
+		<form action="/bcomment/writeBComment.bcomment?seq=${dtos.seq}" method="post">
 			<tr>
 				<th colspan="3" height=100 width=500 align=center><textarea
 						style="width: 100%" name="content" id="content" required></textarea></th>
@@ -99,16 +99,16 @@
 </body>
 <script>
 	document.getElementById("return").onclick =function(){
- 		location.href="/board/board.brd?cpage=${sessionScope.cpage}";
+ 		location.href="/board/contentsBoard.board?cpage=${sessionScope.cpage}";
  	}
 
-	if("${dtos.writer}"=="${sessionScope.login}"){
+	if("${dtos.writer}"=="${sessionScope.id}"){
 		document.getElementById("delete").onclick = function(){
-			location.href = "/board/delete.brd?seq=${dtos.seq}";
+			location.href = "/board/deleteBoard.board?seq=${dtos.seq}";
 		}
 	
 		document.getElementById("fix").onclick = function(){
-			location.href = "/board/fix.brd?seq=${dtos.seq}";
+			location.href = "/board/fixBeforeBoard.board?seq=${dtos.seq}";
 		}
 	}else{
 		document.getElementById("delete").style.visibility="hidden";

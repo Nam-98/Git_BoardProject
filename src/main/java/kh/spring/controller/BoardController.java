@@ -29,6 +29,12 @@ public class BoardController {
 	
 	@RequestMapping("contentsBoard.board")
 	public String contentsBoard(HttpServletRequest request, BoardDTO dto) throws Exception {
+		//----------합칠때 지울거(가짜 로그인, 가짜 글번호)---------
+		System.out.println("들어오나요");
+		session.setAttribute("id", "test");
+		request.setAttribute("seq","1");
+		//---------------------------------------------------------
+		
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		BoardDTO dtos = bservice.searchBoard(dto.getSeq());
 		 List<BCommentDTO> list = cservice.searchComment(dto.getSeq());
@@ -36,6 +42,20 @@ public class BoardController {
 		session.setAttribute("dtos", dtos);
 		session.setAttribute("list", list);
 		return "/board/clickBoardView";
+	}
+	
+	@RequestMapping("deleteBoard.board")
+	public String deleteBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
+		System.out.println("글삭제하러 들어왔습니다.");
+		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
+		//int result = bservice.deleteBoard(dto.getSeq());
+		return "";
+	}
+	
+	@RequestMapping("fixBeforeBoard.board")
+	public String fixBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
+		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
+		return "";
 	}
 	
 }
