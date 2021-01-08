@@ -33,7 +33,8 @@ public class BoardController {
 	@RequestMapping("mainBoard.board")
 	public String mainBoard(HttpServletRequest request) throws Exception {
 		String cpage = request.getParameter("cpage");
-		List<BoardDTO> list = new ArrayList<>();
+
+		List<BoardDTO> list = new ArrayList();
 		System.out.println(cpage);
 		list = bservice.listByCpage(Integer.parseInt(cpage));
 		String navi = bservice.getNavi(Integer.parseInt(cpage));
@@ -65,7 +66,7 @@ public class BoardController {
 	//수정 전 글내용 불러오기
 	@RequestMapping("fixBeforeBoard.board")
 	public String fixBeforeBoard(HttpServletRequest request, Model m) throws Exception{
-		String seq = request.getParameter("seq");
+		int seq = Integer.parseInt(request.getParameter("seq"));
 		BoardDTO bdto = bservice.fixBeforeBoard(seq);
 		m.addAttribute("bdto", bdto);
 	      return "/board/boardFixView";
@@ -76,7 +77,7 @@ public class BoardController {
 	public String fixAfterBoard(BoardDTO bdto) throws Exception{
 		int result = bservice.fixAfterBoard(bdto);
 		System.out.println("글수정 성공유무 ::"+result);
-		return "redirect:/board/mainBoardView";//게시글 리스트 jsp로
+		return "redirect:/board/mainBoard.board?cpage=1";//게시글 리스트 jsp로
 	}
 	
 	//글제목 클릭 시, 글 세부 사항
@@ -98,9 +99,11 @@ public class BoardController {
 		int result = bservice.deleteBoard(dto.getSeq());
 		return "redirect:/board/mainBoard.board?cpage="+session.getAttribute("cpage");
 	}
+
 	@ExceptionHandler
 	public String exceptionalHandler(Throwable e) {
 		e.printStackTrace();
 		return "error";
 	}
+
 }

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kh.spring.dto.BMemberDTO;
 import kh.spring.service.BMemberService;
 
-
-
 @Controller
 @RequestMapping("/bmember")
 public class BMemberContoller {

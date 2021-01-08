@@ -99,7 +99,7 @@ public class BoardService {
 		return bdao.insertBoard(bdto);
 	}
 	
-	public BoardDTO fixBeforeBoard(String seq) throws Exception{
+	public BoardDTO fixBeforeBoard(int seq) throws Exception{
 		return bdao.fixBeforeBoard(seq);
 	}
 	
