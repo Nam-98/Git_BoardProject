@@ -2,7 +2,7 @@ package kh.spring.dto;
 
 import java.sql.Date;
 
-public class FileDTO {
+public class BFileDTO {
 	
 	private int seq;
 	private int parent_seq; //-> 만약 게시판에 첨부파일로 올리는 경우라면 해당 파일이 어느 게시글에 올라간 파일인지 확인해야 하므로 필요
@@ -40,7 +40,7 @@ public class FileDTO {
 	public void setUploadedDate(Date uploadedDate) {
 		this.uploadedDate = uploadedDate;
 	}
-	public FileDTO(int seq, int parent_seq, String oriName, String savedName, Date uploadedDate) {
+	public BFileDTO(int seq, int parent_seq, String oriName, String savedName, Date uploadedDate) {
 		super();
 		this.seq = seq;
 		this.parent_seq = parent_seq;
@@ -48,7 +48,7 @@ public class FileDTO {
 		this.savedName = savedName;
 		this.uploadedDate = uploadedDate;
 	}
-	public FileDTO() {
+	public BFileDTO() {
 		super();
 	}
 
