@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import kh.spring.dto.BoardDTO;
 import kh.spring.statics.BoardConfigurator;
 
+
 @Repository
 public class BoardDAO {
 	
@@ -31,5 +32,14 @@ public class BoardDAO {
 		map.put("endRowNum",endRowNum);
 		return db.selectList("Board.selectAllByPage",map);
 	}
+
+	public BoardDTO searchBoard(int seq)  {
+		return db.selectOne("Board.searchBoard",seq);
+	}	
+
+	public int addViewCountBoard(int seq)  {
+		return db.update("Board.addViewCountBoard",seq);
+	}
+	
 }
 

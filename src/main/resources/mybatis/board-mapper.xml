@@ -10,4 +10,12 @@
 	<select resultType="kh.spring.dto.BoardDTO" id="selectListAll">
 		select * from kh.board order by 1 desc
 	</select>
+
+  <select id="searchBoard" resultType="kh.spring.dto.BoardDTO">
+  		select * from kh.board where seq =#{value}
+  </select>
+  
+  <update id ="addViewCountBoard">
+  		Update kh.board set view_count=view_count+1 where seq =#{value}
+  </update>
 </mapper>
