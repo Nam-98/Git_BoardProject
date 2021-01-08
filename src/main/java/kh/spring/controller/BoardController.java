@@ -35,6 +35,7 @@ public class BoardController {
 	public String mainBoard(HttpServletRequest request) throws Exception {
 		String cpage = request.getParameter("cpage");
 		List<BoardDTO> list = new ArrayList<>();
+		System.out.println(cpage);
 		list = bservice.listByCpage(Integer.parseInt(cpage));
 		String navi = bservice.getNavi(Integer.parseInt(cpage));
 
@@ -43,7 +44,7 @@ public class BoardController {
 		session.setAttribute("cpage", cpage);
 
 
-		return "board/mainBoardView";
+		return "/board/mainBoardView";
 	}
 	
 
@@ -102,12 +103,6 @@ public class BoardController {
 		System.out.println("글삭제하러 들어왔습니다.");
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		//int result = bservice.deleteBoard(dto.getSeq());
-		return "";
-	}
-	
-	@RequestMapping("fixBeforeBoard.board")
-	public String fixBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
-		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		return "";
 	}
 }
