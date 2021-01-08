@@ -33,6 +33,19 @@ public class BoardDAO {
 		return db.selectList("Board.selectAllByPage",map);
 	}
 
+
+	public int insertBoard(BoardDTO bdto) throws Exception{
+		return db.insert("Board.insertBoard",bdto);
+	}
+	
+	public BoardDTO fixBeforeBoard(String seq) throws Exception{
+		return db.selectOne("Board.fixBeforeBoard", seq);
+	}
+	
+	public int fixAfterBoard(BoardDTO bdto) throws Exception{
+		return db.update("Board.fixAfterBoard",bdto);
+	}
+	
 	public BoardDTO searchBoard(int seq)  {
 		return db.selectOne("Board.searchBoard",seq);
 	}	

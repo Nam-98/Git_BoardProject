@@ -16,6 +16,7 @@ public class BoardService {
 	@Autowired
 	private BoardDAO bdao;
 	
+<<<<<<< HEAD
 	public List<BoardDTO> listByCpage(int cpage) throws Exception {		
 		return bdao.listByCpage(cpage);
 	}
@@ -95,6 +96,19 @@ public class BoardService {
 		}
 
 		return sb.toString();
+=======
+	public int insertBoard(BoardDTO bdto) throws Exception{
+		System.out.println("서비스 :: "+bdto.getWriter() +":::" + bdto.getContent());
+		return bdao.insertBoard(bdto);
+	}
+	
+	public BoardDTO fixBeforeBoard(String seq) throws Exception{
+		return bdao.fixBeforeBoard(seq);
+	}
+	
+	public int fixAfterBoard(BoardDTO bdto) throws Exception{
+		return bdao.fixAfterBoard(bdto);
+>>>>>>> e12cd65c760984fb4821a7133829871b595d9eb9
 	}
 
 	//seq로 글 정보 불러오기

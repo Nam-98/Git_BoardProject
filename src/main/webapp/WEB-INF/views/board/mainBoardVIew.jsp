@@ -54,7 +54,7 @@
             <c:forEach var="i" items="${list }">
         	 	<tr>
             		<td width=20>${i.seq}</td>
-            		<td align="center" width=500 id=title><a href=/board/contents.brd?seq=${i.seq}>${i.title}</a></td>
+            		<td align="center" width=500 id=title><a href=contentsBoard.board?seq=${i.seq}>${i.title}</a></td>
             		<td width=100>${i.writer}</td>
             		<td width=100>${i.write_date}</td>
             		<td>${i.view_count}</td>
