@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,7 @@ import kh.spring.service.BMemberService;
 @Controller
 @RequestMapping("/bmember")
 public class BMemberContoller {
+
 	@Autowired
 	private BMemberService mservice;
 	
@@ -100,5 +102,9 @@ public class BMemberContoller {
 	
 	
 	// 테스트영역 종료
-
+	@ExceptionHandler
+	public String exceptionalHandler(Throwable e) {
+		e.printStackTrace();
+		return "error";
+	}
 }
