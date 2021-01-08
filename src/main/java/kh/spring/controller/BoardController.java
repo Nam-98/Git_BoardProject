@@ -101,13 +101,9 @@ public class BoardController {
 		int result = bservice.deleteBoard(dto.getSeq());
 		return "/board/deleteBoardView";
 	}
-<<<<<<< HEAD
-=======
-	
 	@ExceptionHandler
 	public String exceptionalHandler(Throwable e) {
 		e.printStackTrace();
 		return "error";
 	}
->>>>>>> c742730aa527e0d7cece3c7779f3a52a5b9757ed
 }

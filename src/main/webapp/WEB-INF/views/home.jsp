@@ -26,7 +26,7 @@ fieldset {
 			<tr>
 				<th colspan=2>Login Box
 			</tr>
-			<form action="/member/login.mem" method="post">
+			<form action="/bmember/loginMember.member" method="post">
 				<tr>
 					<td>아이디 : 
 					<td><input type=text name=id>
@@ -45,10 +45,10 @@ fieldset {
 			
 			<script>
 				document.getElementById("signUp").onclick=function(){
-					location.href="/member/signUp.mem";
+					location.href="/bmember/signUpMember.member";
 				}
 				document.getElementById("login").onclick=function(){
-					location.href="/member/login.mem";
+					location.href="/bmember/loginMember.member";
 				}
 			</script>
 			<%
@@ -58,22 +58,13 @@ fieldset {
 				<button type="button" id="board">게시판</button>
 				<button type="button" id="mypage">마이페이지</button>
 				<button type="button" id="logout">로그아웃</button>
-				<button type="button" id="delete">회원탈퇴</button>
 			</fieldset>
 			<script>
 				document.getElementById("logout").onclick=function(){
 					location.href="/bmember/logoutMember.member";
 				}
 				document.getElementById("mypage").onclick=function(){
-					location.href="/bmember/mypage.member";
-				}
-				document.getElementById("delete").onclick = function() {
-					let msg = confirm("삭제하시겠습니까?");
-	         		if(msg){
-	             		location.href="/bmember/quitProcessMember.member";
-	             	}else{
-	             		location.href="/";
-	             	}
+					location.href="/bmember/getMyInfo.member";
 				}
 				document.getElementById("board").onclick=function(){
 					location.href="/board/mainBoard.board?cpage=1";
