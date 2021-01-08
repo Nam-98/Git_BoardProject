@@ -30,14 +30,14 @@ public class BMemberContoller {
 //		return "redirect:/";
 //	}
 	
-	@RequestMapping("quitProcessMember.mem")
+	@RequestMapping("quitProcessMember.member")
 	public String quitProcessMember(HttpServletRequest request, Model model) {
 		String sessionId = (String)request.getSession().getAttribute("id");
 		int result = mservice.quitProcessMember(sessionId);
 		return "로그아웃 프로세스로 이동";
 	}
 	
-	@RequestMapping("getMyInfo.mem")
+	@RequestMapping("getMyInfo.member")
 	public String getMyInfo(HttpServletRequest request, Model model) {
 		String sessionId = (String)request.getSession().getAttribute("id");
 		
@@ -48,7 +48,7 @@ public class BMemberContoller {
 		return "/bmember/myInfoView";
 	}
 	
-	@RequestMapping("modifyMyInfo.mem")
+	@RequestMapping("modifyMyInfo.member")
 	public String modifyMyInfo(HttpServletRequest request, Model model) {
 		String sessionId = (String)request.getSession().getAttribute("id");
 		
@@ -60,12 +60,12 @@ public class BMemberContoller {
 	}
 	
 	
-	@RequestMapping("modifyProcessMember.mem")
+	@RequestMapping("modifyProcessMember.member")
 	public String modifyProcessMember(BMemberDTO bmemberDTO, HttpServletRequest request) {
 		
 		bmemberDTO.setId((String)request.getSession().getAttribute("id"));
 		mservice.modifyProcessMember(bmemberDTO);
-		return "redirect:/bmember/getMyInfo.mem";
+		return "redirect:/bmember/getMyInfo.member";
 	}
 	
 	

@@ -233,7 +233,7 @@ input:focus {
 	
 	    <script>
     	$('#modify_btn').on('click', function(){
-    		location.href="/bmember/modifyMyInfo.mem";
+    		location.href="/bmember/modifyMyInfo.member";
     	})
     	$('#goHome_btn').on('click', function(){
     		location.href="/";

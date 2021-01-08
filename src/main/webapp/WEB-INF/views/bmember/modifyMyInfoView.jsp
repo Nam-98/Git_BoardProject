@@ -147,7 +147,7 @@ input:focus {
 				</div>
 				<div class="notice">
 
-					<form action="/bmember/modifyProcessMember.mem" method="post"
+					<form action="/bmember/modifyProcessMember.member" method="post"
 						id="formBox">
 						<div id=wrapper>
 							<div class='row'>
