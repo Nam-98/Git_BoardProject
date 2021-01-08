@@ -11,7 +11,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(HttpSession session) {
 		if(session.getAttribute("id")==null) {
-		return "/member/loginView";
+		return "/bmember/loginView";
 		}else {
 			return "/home";
 			//로그아웃, board page로 가기 등이 있는 page로 바꾸어주세요.

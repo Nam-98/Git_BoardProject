@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MemberDAO {
+public class BMemberDAO {
 	
 	@Autowired
 	private SqlSession db;
