@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kh.spring.dto.BCommentDTO;
@@ -34,8 +35,18 @@ public class BCommentController {
 	}
 	
 	@RequestMapping("deleteBComment.bcomment")
-	public String deleteBComment() throws Exception{
-		return "";
+	public String deleteBComment(HttpServletRequest request, BCommentDTO dto) throws Exception{
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		int board_seq = Integer.parseInt(request.getParameter("board_seq"));
+		int result = cservice.deleteBComment(seq);
+		request.setAttribute("result", result);
+		request.setAttribute("board_seq", board_seq);
+		return "bcomment/deleteBCommentResultView";
 	}
 	
+	@ExceptionHandler
+	public String exceptionalHandler(Throwable e) {
+		e.printStackTrace();
+		return "error";
+	}
 }
