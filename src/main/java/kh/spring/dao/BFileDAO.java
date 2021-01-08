@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class FileDAO {
+public class BFileDAO {
 	@Autowired
 	private SqlSession db;
 

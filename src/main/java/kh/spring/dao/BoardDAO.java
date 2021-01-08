@@ -13,6 +13,7 @@ public class BoardDAO {
 	@Autowired
 	private SqlSession db;
 
+
 	public int insertBoard(BoardDTO bdto) throws Exception{
 		return db.insert("Board.insertBoard",bdto);
 	}
@@ -25,5 +26,13 @@ public class BoardDAO {
 		return db.update("Board.fixAfterBoard",bdto);
 	}
 	
+	public BoardDTO searchBoard(int seq)  {
+		return db.selectOne("Board.searchBoard",seq);
+	}	
+
+	public int addViewCountBoard(int seq)  {
+		return db.update("Board.addViewCountBoard",seq);
 	}
+	
+}
 

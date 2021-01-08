@@ -24,4 +24,13 @@ public class BoardService {
 		return bdao.fixAfterBoard(bdto);
 	}
 
+	//seq로 글 정보 불러오기
+	public BoardDTO searchBoard(int seq) throws Exception {
+		return bdao.searchBoard(seq);
+	}
+	//조회수 +1
+	public int addViewCountBoard(int seq) throws Exception {
+		return bdao.addViewCountBoard(seq);
+	}
+	
 }

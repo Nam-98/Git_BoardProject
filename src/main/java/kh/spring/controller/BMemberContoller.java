@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/bmember")
 public class BMemberContoller {
 
 }
