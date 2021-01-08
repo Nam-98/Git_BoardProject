@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,15 +30,15 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<h2 style="text-align: center;">게시글 작성</h2><br><br><br>
+<h2 style="text-align: center;">게시글 수정</h2><br><br><br>
 
 <div style="width: 60%; margin: auto;">
-	<form method="post" action="/board/insertBoard.board">
-		<input type="text" name="writer" style="width: 20%;" value="${id}"/><br>
-		<input type="text" name="title" style="width: 40%;" placeholder="제목"/>
+	<form method="post" action="/write">
+		<input type="text" name="writer" style="width: 20%;" value="#{bdto.writer }"/><br>
+		<input type="text" name="title" style="width: 40%;" value="#{bdto.title }"/>
 		<br><br> 
 		<textarea id="summernote" name="content"></textarea>
-		<input id="subBtn" type="button" value="작성 완료" style="float: right;" onclick="goWrite(this.form)"/>
+		<input id="subBtn" type="button" value="#{bdto.content }" style="float: right;" onclick="goWrite(this.form)"/>
 	</form>
 </div>
 

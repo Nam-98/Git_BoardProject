@@ -23,4 +23,8 @@ public class BCommentDAO {
 	public int insertComment(BCommentDTO dto) throws Exception {
 		return db.insert("BComment.insertComment", dto);
 	}
+	
+	public int deleteBComment(int seq) throws Exception{
+		return db.delete("BComment.deleteBComment",seq);
+	}
 }
