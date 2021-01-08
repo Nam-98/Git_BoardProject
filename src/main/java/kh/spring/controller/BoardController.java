@@ -34,7 +34,7 @@ public class BoardController {
 	@RequestMapping("mainBoard.board")
 	public String mainBoard(HttpServletRequest request) throws Exception {
 		String cpage = request.getParameter("cpage");
-		List<BoardDTO> list = new ArrayList<>();
+		List<BoardDTO> list = new ArrayList();
 		list = bservice.listByCpage(Integer.parseInt(cpage));
 		String navi = bservice.getNavi(Integer.parseInt(cpage));
 
@@ -104,10 +104,5 @@ public class BoardController {
 		//int result = bservice.deleteBoard(dto.getSeq());
 		return "";
 	}
-	
-	@RequestMapping("fixBeforeBoard.board")
-	public String fixBoard(HttpServletRequest request, BoardDTO dto) throws Exception{
-		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
-		return "";
-	}
+
 }

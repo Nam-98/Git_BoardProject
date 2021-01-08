@@ -27,7 +27,7 @@ public class BoardDAO {
 		int startRowNum = (cpage - 1) * BoardConfigurator.recodeCountPerPage + 1;
 		int endRowNum = startRowNum + BoardConfigurator.recodeCountPerPage - 1;
 
-		Map<String,Integer> map = new HashMap<>();
+		Map<String,Integer> map = new HashMap();
 		map.put("startRowNum",startRowNum);
 		map.put("endRowNum",endRowNum);
 		return db.selectList("Board.selectAllByPage",map);
