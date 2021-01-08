@@ -36,6 +36,7 @@ public class BoardController {
 	public String mainBoard(HttpServletRequest request) throws Exception {
 		String cpage = request.getParameter("cpage");
 		List<BoardDTO> list = new ArrayList<>();
+		System.out.println(cpage);
 		list = bservice.listByCpage(Integer.parseInt(cpage));
 		String navi = bservice.getNavi(Integer.parseInt(cpage));
 
@@ -100,7 +101,6 @@ public class BoardController {
 		int result = bservice.deleteBoard(dto.getSeq());
 		return "/board/deleteBoardView";
 	}
-	
 	@ExceptionHandler
 	public String exceptionalHandler(Throwable e) {
 		e.printStackTrace();
