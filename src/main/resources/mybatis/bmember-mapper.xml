@@ -12,5 +12,17 @@
 	<select id="loginMember" resultType="int">
 		select count(id) from kh.bmember where id=#{id} and pw=#{pw}
 	</select>
+
+	<delete id="quitProcessMember">
+		delete from kh.bmember where id = #{sessionId}
+	</delete>
+	
+	<update id="modifyProcessMember">
+		update kh.bmember set pw = #{pw}, name = #{name}, email = #{email}, contact = #{contact} where id = #{id}
+	</update>
+	
+	<select id="getMyInfo" resultType="kh.spring.dto.BMemberDTO">
+		select * from kh.bmember where id = #{id}
+	</select>
 </mapper>
   

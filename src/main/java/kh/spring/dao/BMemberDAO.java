@@ -1,5 +1,7 @@
 package kh.spring.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,8 +23,18 @@ public class BMemberDAO {
 	}
 	
 	public int loginMember (BMemberDTO dto) {
-		System.out.println(dto.getId());
-		System.out.println(dto.getPw());
 		return db.selectOne("BMember.loginMember", dto);
 	}
+	public int quitProcessMember(String sessionId) {
+		return db.delete("BMember.quitProcessMember", sessionId);
+	}
+	
+	public int modifyProcessMember(BMemberDTO bmemberDTO) {
+		return db.update("BMember.modifyProcessMember", bmemberDTO);
+	}
+	
+	public List<BMemberDTO> getMyInfo(String sessionId) {
+		return db.selectList("BMember.getMyInfo", sessionId);
+	}
+
 }

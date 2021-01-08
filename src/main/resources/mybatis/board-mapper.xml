@@ -3,5 +3,36 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
+	<select resultType="kh.spring.dto.BoardDTO" id="selectAllByPage">
+		select * from (select kh.board.*, row_number() over(order by write_date desc) rn from kh.board) where rn between #{startRowNum} and #{endRowNum}
+	</select>
+	
+	<select resultType="kh.spring.dto.BoardDTO" id="selectListAll">
+		select * from kh.board order by 1 desc
+	</select>
+	
+	<insert id="insertBoard">
+		insert into kh.board values(kh.board_seq.nextval,#{writer},#{title},#{content},0,sysdate)
+	</insert>
+	
+	<select id="fixBeforeBoard" resultType="kh.spring.dto.BoardDTO">
+		select * from kh.board where seq=#{seq}
+	</select>
+	
+	<update id="fixAfterBoard">
+		update kh.board set title=#{title},content=#{content} where seq = #{seq}
+	</update>
+
+  <select id="searchBoard" resultType="kh.spring.dto.BoardDTO">
+  		select * from kh.board where seq =#{value}
+  </select>
+  
+  <update id ="addViewCountBoard">
+  		Update kh.board set view_count=view_count+1 where seq =#{value}
+  </update>
+
+  <delete id ="deleteBoard">
+  		delete from kh.board where seq = #{value}
+  </delete>
 
 </mapper>

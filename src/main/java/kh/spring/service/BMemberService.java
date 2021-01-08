@@ -1,6 +1,7 @@
 package kh.spring.service;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,17 @@ public class BMemberService {
 			session.setAttribute("id", dto.getId());
 		}
 		return result;
+		}
+	
+	public int quitProcessMember(String sessionId) {
+		return mdao.quitProcessMember(sessionId);
+	}
+	
+	public int modifyProcessMember(BMemberDTO bmemberDTO) {
+		return mdao.modifyProcessMember(bmemberDTO);
 	}
 
+	public List<BMemberDTO> getMyInfo(String sessionId) {
+		return mdao.getMyInfo(sessionId);
+	}
 }

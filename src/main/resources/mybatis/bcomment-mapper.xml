@@ -4,4 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BComment">
 
+  <select id ="searchComment" resultType="kh.spring.dto.BCommentDTO">
+  		select * from kh.bcomment where board_seq = #{value}
+  </select>
+
+  <insert id="insertComment">
+  		insert into kh.bcomment values(kh.bcomment_seq.nextval,#{writer},#{contents},sysdate,#{board_seq})
+  </insert>
+  
+  <delete id ="deleteBComment">
+  		delete from kh.bcomment where seq = #{value}
+  </delete>
 </mapper>
