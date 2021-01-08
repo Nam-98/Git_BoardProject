@@ -2,7 +2,7 @@ package kh.spring.dto;
 
 import java.util.Date;
 
-public class CommentDTO {
+public class BCommentDTO {
 
 	private int seq;
 	private String writer;
@@ -39,7 +39,7 @@ public class CommentDTO {
 	public void setBoard_seq(int board_seq) {
 		this.board_seq = board_seq;
 	}
-	public CommentDTO(int seq, String writer, String contents, Date write_date, int board_seq) {
+	public BCommentDTO(int seq, String writer, String contents, Date write_date, int board_seq) {
 		super();
 		this.seq = seq;
 		this.writer = writer;
@@ -47,7 +47,7 @@ public class CommentDTO {
 		this.write_date = write_date;
 		this.board_seq = board_seq;
 	}
-	public CommentDTO() {
+	public BCommentDTO() {
 		super();
 	}
 

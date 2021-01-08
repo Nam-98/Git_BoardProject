@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/comment")
-public class CommentController {
+public class BCommentController {
 
 }

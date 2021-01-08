@@ -3,12 +3,12 @@ package kh.spring.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kh.spring.dao.CommentDAO;
+import kh.spring.dao.BCommentDAO;
 
 @Service
-public class CommentService {
+public class BCommentService {
 	
 	@Autowired
-	private CommentDAO cdao;
+	private BCommentDAO cdao;
 
 }

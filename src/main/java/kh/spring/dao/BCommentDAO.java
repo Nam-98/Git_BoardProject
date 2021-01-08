@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class CommentDAO {
+public class BCommentDAO {
 	
 	@Autowired
 	private SqlSession db;
