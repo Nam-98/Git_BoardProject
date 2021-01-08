@@ -43,30 +43,30 @@ width : 1000px;
 </style>
 <body>
 	<div class="container">
-	<table border="1" align="center" width="760" class="table table-hover">
-		<tr>
-			<td colspan="5" align="center" id="mainTitle"><a
-				href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></a></td>
-		</tr>
-		<tr id="subTitle">
-			<td width=20>Seq</td>
-			<th align="center" width=500>Title</th>
-			<th align="center" width=100>Writer</th> 
-			<th align="center" width=100>Date</th>
-			<th align="center">View</th>
-		</tr>
-		<tr class="component">
-			<td width=20 id="seq">${dtos.seq}
-			<td width=500 id="title">${dtos.title}
-			<td width=100>${dtos.writer}
-			<td width=100>${dtos.write_date}
-			<td>${dtos.view_count}
-		</tr>
-
-		<tr>
-			<td colspan="5" height=500 align=center valign=center id="contents">${dtos.content}</td>
-		</tr>
-		<tr>
+	
+	<a href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Seq</th>
+      <th scope="col">Title</th>
+      <th scope="col">Writer</th>
+      <th scope="col">Date</th>
+      <th scope="col">View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">${dtos.seq}</th>
+      <td id="seq">${dtos.title}</td>
+      <td id="title">${dtos.writer}</td>
+      <td>${dtos.write_date}</td>
+      <td>${dtos.view_count}</td>
+    </tr>
+    <tr>
+	  <td colspan="5" align=center id="contents">${dtos.content}</td>
+	</tr>
+			<tr>
 			<td align=right colspan="5">
 				<button id="fix">수정하기</button>
 				<button id="delete">삭제하기</button> <input type="button" id="return"
@@ -102,30 +102,7 @@ width : 1000px;
 				<th colspan="3"><button id="add_co" >댓글 등록</button></th>
 			</tr>
 		</form>
-	</table>
 	
-	<a href="/board/mainBoard.board?cpage=1"><h1>자유게시판</h1></a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Seq</th>
-      <th scope="col">Title</th>
-      <th scope="col">Writer</th>
-      <th scope="col">Date</th>
-      <th scope="col">View</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">${dtos.seq}</th>
-      <td id="seq">${dtos.title}</td>
-      <td id="title">${dtos.writer}</td>
-      <td>${dtos.write_date}</td>
-      <td>${dtps.view_count}</td>
-    </tr>
-    <tr>
-	  <td colspan="5" align=center id="contents">${dtos.content}</td>
-	</tr>
   </tbody>
 </table>
 	

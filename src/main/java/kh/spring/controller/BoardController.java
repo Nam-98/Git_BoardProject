@@ -84,11 +84,6 @@ public class BoardController {
 	//글제목 클릭 시, 글 세부 사항
 	@RequestMapping("contentsBoard.board")
 	public String contentsBoard(HttpServletRequest request, BoardDTO dto) throws Exception {
-		//----------합칠때 지울거(가짜 로그인)---------
-		System.out.println("들어오나요");
-		session.setAttribute("id", "test");
-		//가짜 글번호 지움
-		//---------------------------------------------------------	
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		BoardDTO dtos = bservice.searchBoard(dto.getSeq());
 		 List<BCommentDTO> list = cservice.searchComment(dto.getSeq());
