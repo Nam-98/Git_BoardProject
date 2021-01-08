@@ -1,9 +1,7 @@
 package kh.spring.controller;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -44,8 +42,7 @@ public class BoardController {
 		session.setAttribute("list", list);
 		session.setAttribute("navi", navi);
 		session.setAttribute("cpage", cpage);
-
-
+		
 		return "/board/mainBoardView";
 	}
 	
